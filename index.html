@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.container
+{
+    display: grid;
+    width: 400px;
+    margin: auto;
+    gap: 20px;
+}
+</style>
+<body>
+    <div class="container">
+        <h2>Conver temprature</h2>
+        <label for="temprature">Enter Temprature</label>
+        <input type="number" id="number" required="">
+        <button id="clear" onclick="ClearIt()">Clear</button>
+        <select name="select" id="select">
+            <option value="faren">Farenhieght</option>
+            <option value="cel">Celsius</option>
+        </select>
+        <input type="submit" id="btn" onclick="change();validation();"  placeholder="Convert">
+        <h3 style="background-color: burlywood;" id="textarea"></h3>
+    </div>
+</body>
+<script>
+    let input=document.getElementById('number');
+    let type=document.getElementById('select');
+    let output=document.getElementById('textarea');
+    let ans;
+    function change()
+    {
+        if(type.value==='faren')
+        {
+            ans=input.value*(9/5)+32;
+        output.innerHTML=  `The output is ${ans} celcius`; 
+
+        }
+        else
+        {
+            ans=(input.value-32)*5/9;
+        output.innerHTML=  `The output is ${ans} faren`; 
+
+        }
+        // ans=Math.floor(ans);
+    }
+    function validation()
+    {
+        if(input.value=='')
+        {
+            alert('please input some number');
+        }
+    }
+    function ClearIt()
+    {
+        input.value='clear';
+    }
+</script>
+</html>
